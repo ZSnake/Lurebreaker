@@ -3,6 +3,7 @@ import { Courses } from '../../api/courses.js';
 
 Template.listCourses.onRendered(function(){
     $('.modal-trigger').leanModal();
+    $('input, textarea').characterCounter();
 });
 
 Template.listCourses.events({
@@ -14,7 +15,11 @@ Template.listCourses.events({
         $('#name').val(""),
         $('#description').val("")
         Meteor.call('courses.insert', course)
-    }
+    },
+    'click .delete'() {
+        Meteor.call('courses.remove', this._id);
+    },
+    
 })
 Template.listCourses.helpers({
     courses(){

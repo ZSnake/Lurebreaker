@@ -5,7 +5,7 @@
                 <li class="collection-item avatar flow-text blue-grey darken-2 white-text">
                     <span class="title">{{name}}</span>
                     <p>{{description}} <br></p>
-                    <a href="" class="secondary-content right-align"><i class="material-icons">delete</i></a> 
+                    <a href="" class="secondary-content right-align delete"><i class="material-icons">delete</i></a> 
                 </li>
             </a>
          </ul>
@@ -20,11 +20,11 @@
             <form class="col s12">
                 <div class="row">
                     <div class="input-field col s6">
-                        <input id="name" type="text" class="validate">
+                        <input id="name" type="text" max=30 length="30" class="validate">
                         <label for="name">Name</label>
                     </div>
                     <div class="input-field col s12">
-                        <textarea id="description" class="materialize-textarea"></textarea>
+                        <textarea id="description" max=100 length="100" class="materialize-textarea"></textarea>
                         <label for="description">Course Description</label>
                     </div>
                 </div>
@@ -37,4 +37,5 @@
         <a id="addCourseButton" class="modal-action modal-close waves-effect waves-green btn-flat white-text">Add</a>
     </div>
   </div>
+  
 </template>

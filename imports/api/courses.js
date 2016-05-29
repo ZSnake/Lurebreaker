@@ -18,5 +18,9 @@ Meteor.methods({
   'courses.insert'(course){
       //TODO: check if user exists
       Courses.insert(course); 
+   },
+   'courses.remove'(_id){
+     //TODO: Check for user
+     Courses.remove({_id: _id});
    }
 })
