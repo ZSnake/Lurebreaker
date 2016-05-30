@@ -16,11 +16,21 @@ Courses.attachSchema(Schema.course);
 
 Meteor.methods({
   'courses.insert'(course){
-      //TODO: check if user exists
-      Courses.insert(course); 
+      if (! this.userId) {
+        throw new Meteor.Error('not-authorized');
+      }
+      Courses.insert(course, function(err){
+        if(err)
+          throw new Meteor.Error('Error inserting course: ' + err);
+      }); 
    },
    'courses.remove'(_id){
-     //TODO: Check for user
-     Courses.remove({_id: _id});
+      if (! this.userId) {
+        throw new Meteor.Error('not-authorized');
+      }
+     Courses.remove({_id: _id}, function(err){
+       if(err)
+        throw new Meteor.Error('Error removing course: ' + err);
+     });
    }
 })

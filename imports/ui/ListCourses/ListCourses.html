@@ -1,41 +1,40 @@
 <template name="listCourses">
-    {{#each courses}}
-        <ul class="collection">
-            <a href="/course/{{_id}}">
-                <li class="collection-item avatar flow-text blue-grey darken-2 white-text">
-                    <span class="title">{{name}}</span>
-                    <p>{{description}} <br></p>
-                    <a href="" class="secondary-content right-align delete"><i class="material-icons">delete</i></a> 
-                </li>
-            </a>
-         </ul>
-    {{/each}}
-    <div><a href="#addClassDialog" class="modal-trigger btn-floating btn-large waves-effect waves-light blue-grey lighten-2 right"><i class="material-icons">add</i></a></div>
-    
-  <div id="addClassDialog" class="modal modal-fixed-footer  blue-grey darken-1 white-text">
-    <div class="modal-content">
-      <h4>New Course</h4>
-      <p>
-          <div class="row">
-            <form class="col s12">
-                <div class="row">
-                    <div class="input-field col s6">
-                        <input id="name" type="text" max=30 length="30" class="validate">
-                        <label for="name">Name</label>
+        {{#each courses}}
+            <ul class="collection">
+                <a href="/course/{{_id}}">
+                    <li class="collection-item avatar flow-text blue-grey darken-2 white-text">
+                        <span class="title">{{name}}</span>
+                        <p>{{description}} <br></p>
+                        <a href="" class="secondary-content right-align delete"><i class="material-icons">delete</i></a> 
+                    </li>
+                </a>
+            </ul>
+        {{/each}}
+        <div><a href="#addClassDialog" class="modal-trigger btn-floating btn-large waves-effect waves-light blue-grey lighten-2 right"><i class="material-icons">add</i></a></div>
+        
+    <div id="addClassDialog" class="modal modal-fixed-footer  blue-grey darken-1 white-text">
+        <div class="modal-content">
+        <h4>New Course</h4>
+        <p>
+            <div class="row">
+                <form class="col s12">
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input id="name" type="text" max=30 length="30" class="validate">
+                            <label for="name">Name</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <textarea id="description" max=100 length="100" class="materialize-textarea"></textarea>
+                            <label for="description">Course Description</label>
+                        </div>
                     </div>
-                    <div class="input-field col s12">
-                        <textarea id="description" max=100 length="100" class="materialize-textarea"></textarea>
-                        <label for="description">Course Description</label>
-                    </div>
-                </div>
-            </form>
+                </form>
+            </div>
+        </p>
         </div>
-      </p>
+        <div class="modal-footer blue-grey darken-2">
+            <a class="modal-action modal-close waves-effect waves-red btn-flat white-text">Cancel</a>
+            <a id="addCourseButton" class="modal-action modal-close waves-effect waves-green btn-flat white-text">Add</a>
+        </div>
     </div>
-    <div class="modal-footer blue-grey darken-2">
-        <a class="modal-action modal-close waves-effect waves-red btn-flat white-text">Cancel</a>
-        <a id="addCourseButton" class="modal-action modal-close waves-effect waves-green btn-flat white-text">Add</a>
-    </div>
-  </div>
-  
 </template>

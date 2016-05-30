@@ -5,13 +5,17 @@ import '../ui/ListCourses/ListCourses.js';
 import '../ui/CourseDetails/CourseDetails.js';
 import '../ui/SignIn/SignIn.js';
 import '../ui/SignUp/SignUp.js';
+import '../ui/LandingPage/LandingPage.js';
 
 Router.configure({
   layoutTemplate: 'layout'
 });
 
 Router.route('/', function () {
-  this.render('listCourses');
+  if(Meteor.user()){
+    this.render('listCourses');}
+  else{
+    this.render('landingPage');}
 });
 
 Router.route('/course/:_id', function () {
