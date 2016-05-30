@@ -22,3 +22,4 @@ iron:router
 aldeed:simple-schema
 aldeed:collection2
 materialize:materialize
+accounts-password

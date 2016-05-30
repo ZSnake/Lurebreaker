@@ -1,13 +1,24 @@
 <template name="layout">
     <nav>
         <div class="nav-wrapper black">
-            <a href="/" class="brand-logo white-text">Grad</a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-            </ul>
+            <div class="container">
+                <a href="/" class="brand-logo white-text">Grad</a>   
+                {{#if currentUser}}
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="#">Bienvenido, <b>{{currentUser.profile.firstName}}</b></a></li>
+                    <li id="signoutButton"><a class="waves-effect waves-light btn blue-grey darken-4">Sign out</a></li>
+                </ul>
+                {{else}}
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="/signin" class="modal-trigger">Sign in</a></li>
+                    <li><a href="/signUp">Sign up</a></li>
+                </ul>
+                {{/if}}
+            </div>
         </div>
     </nav>
     <div class="container">
         {{>yield}}
     </div>
-    
 </template>
+
