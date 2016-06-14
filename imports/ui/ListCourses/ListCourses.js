@@ -4,13 +4,15 @@ import { Courses } from '../../api/courses.js';
 Template.listCourses.onRendered(function(){
     $('.modal-trigger').leanModal();
     $('input, textarea').characterCounter();
+    Meteor.subscribe('courses');
 });
 
 Template.listCourses.events({
     'click #addCourseButton'(event){
         let course = {
             name: $('#name').val(),
-            description: $('#description').val()
+            description: $('#description').val(),
+            owner: Meteor.user()._id
         };
         $('#name').val(""),
         $('#description').val("")

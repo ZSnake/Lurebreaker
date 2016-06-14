@@ -9,6 +9,9 @@ Schema.course = new SimpleSchema({
   description: {
     type: String,
     max: 100,
+  }, 
+  owner: {
+    type: SimpleSchema.RegEx.Id
   }
 });
 
@@ -33,4 +36,11 @@ Meteor.methods({
         throw new Meteor.Error('Error removing course: ' + err);
      });
    }
-})
+});
+
+
+if (Meteor.isServer) {
+  Meteor.publish('courses', function coursesPublication(){ 
+   return Courses.find({owner: this.userId});
+  });  
+}

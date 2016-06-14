@@ -2,12 +2,12 @@ import { Meteor } from 'meteor/meteor';
 import { Courses } from '../imports/api/courses.js';
 
 Meteor.startup(() => {
-  let courses = seedCourses();
-    if(Courses.find({}).count() === 0){
-        for(let i = 0; i < courses.length; i++){
-            Courses.insert(courses[i]);
-        }
-    }
+  // let courses = seedCourses();
+  //   if(Courses.find({}).count() === 0){
+  //       for(let i = 0; i < courses.length; i++){
+  //           Courses.insert(courses[i]);
+  //       }
+  //   }
 });
 
 let seedCourses = () => {
